@@ -535,12 +535,12 @@ def generate_custom_test(args):
     except FileNotFoundError as e:
         raise ValueError(
             f"Runner config file '{args.runner_config}' does not exist.")
-    
+
     found_runner_label = False
     for runner_type, runner_nodes in runner_config.items():
         if args.runner_label == runner_type or args.runner_label in runner_nodes:
             found_runner_label = True
-    
+
     if not found_runner_label:
         raise ValueError(f"Unable to find specified runner label '{args.runner_label}'.")
 
@@ -558,7 +558,7 @@ def generate_custom_test(args):
             # Again, just use 1k1k since this is just meant to smoke test all runners
             FIELD_ISL: 1024,
             FIELD_OSL: 1024,
-            FIELD_TP: 8,
+            FIELD_TP: 1,
             FIELD_EP: 1,
             FIELD_DP_ATTN: False,
             FIELD_CONC: 4,
