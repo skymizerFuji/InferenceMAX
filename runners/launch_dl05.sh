@@ -13,7 +13,7 @@ docker run --rm -d --network host --name $server_name \
 -v $HF_HUB_CACHE_MOUNT:$HF_HUB_CACHE \
 -v $GITHUB_WORKSPACE:/workspace/ -w /workspace/ \
 -e HF_TOKEN -e HF_HUB_CACHE -e MODEL -e TP -e CONC -e MAX_MODEL_LEN -e ISL -e OSL -e PORT=$PORT \
--e TORCH_CUDA_ARCH_LIST="10.0" -e CUDA_DEVICE_ORDER=PCI_BUS_ID -e CUDA_VISIBLE_DEVICES="0" \
+-e TORCH_CUDA_ARCH_LIST="12.0" -e CUDA_DEVICE_ORDER=PCI_BUS_ID -e CUDA_VISIBLE_DEVICES="0" \
 --entrypoint=/bin/bash \
 $(echo "$IMAGE" | sed 's/#/\//') \
 benchmarks/"${EXP_NAME%%_*}_${PRECISION}_5090${FRAMEWORK_SUFFIX}_docker.sh"
