@@ -29,7 +29,7 @@ done < <(docker logs -f --tail=0 $server_name 2>&1)
 git clone https://github.com/kimbochen/bench_serving.git
 
 set -x
-docker run --rm --network host --name $client_name \
+docker run --gpus all --rm --network host --name $client_name \
 -v $GITHUB_WORKSPACE:/workspace/ -w /workspace/ \
 -e HF_TOKEN -e PYTHONPYCACHEPREFIX=/tmp/pycache/ \
 --entrypoint=/bin/bash \
